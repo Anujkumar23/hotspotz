@@ -42,7 +42,7 @@ const CartComponent: React.FC = () => {
   };
 
   return (
-    <section className="flex justify-center  flex-col min-w-[400px] min-h-[67vh]  ">
+    <section className="flex justify-center  flex-col  min-h-[67vh]  ">
       <h1
         className={roboto.className}
         style={{ fontSize: "40px", textAlign: "center" }}

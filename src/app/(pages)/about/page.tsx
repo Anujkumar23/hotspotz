@@ -16,7 +16,7 @@ const montserrat = Montserrat({
 const About: NextPage = () => {
   return (
     <section className={montserrat.className}>
-      <section className="flex justify-center items-center  flex-wrap  mx-auto min-w-[400px] ">
+      <section className="flex justify-center items-center  flex-wrap  mx-auto ">
         <section className="left  p-3 mt-7  ">
           <h1 className="text-6xl m-3 leading-normal text-center">
             Welcome to

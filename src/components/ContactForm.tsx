@@ -58,7 +58,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <section className="flex justify-center mt-4 gap-2 min-w-[420px] min-h-screen ">
+    <section className="flex justify-center mt-4 gap-2  min-h-screen ">
       <section className="left xs:hidden lg:block lg:ml-8">
         <Image
           src={"/Contact-Us.png"}
@@ -76,7 +76,7 @@ const ContactForm: React.FC = () => {
         </h1>
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-2  items-center p-3 w-[50vw] min-w-[400px] "
+          className="flex flex-col gap-2  items-center p-3 w-[50vw]  "
         >
           <input
             required
