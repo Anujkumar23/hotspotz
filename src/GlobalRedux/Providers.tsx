@@ -10,15 +10,15 @@ const Providers: React.FC<React.PropsWithChildren> = ({ children }) => {
   const queryClient = new QueryClient();
 
   return (
-    <CheckUserLogInProvider>
-      <Provider store={store}>
-        <QueryClientProvider client={queryClient}>
-          <Header />
-          {children}
-          <FooterComponent />
-        </QueryClientProvider>
-      </Provider>
-    </CheckUserLogInProvider>
+    // <CheckUserLogInProvider>
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
+        <Header />
+        {children}
+        <FooterComponent />
+      </QueryClientProvider>
+    </Provider>
+    // </CheckUserLogInProvider>
   );
 };
 
