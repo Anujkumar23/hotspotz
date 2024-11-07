@@ -8,6 +8,8 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "@/GlobalRedux/features/cart-slice";
 import ShimmerMenu from "@/components/ShimmerMenu";
 import ErrorComponent from "@/components/Error";
+import { useRouter } from "next/navigation";
+import { GetUserfromLocalStorage } from "@/utils";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -36,11 +38,17 @@ type Props = {
 const Page = ({ params }: Props) => {
   const { resId } = params;
   const dispatch = useDispatch();
+  const { push } = useRouter();
+  const user = GetUserfromLocalStorage();
 
   const { data, loading, error } = UseFetch(resId);
 
   const handleAddToCart = (item: CardType) => {
-    dispatch(addToCart({ item, quantity: 1 }));
+    if (!user?.email) {
+      push("/login");
+    } else {
+      dispatch(addToCart({ item, quantity: 1 }));
+    }
   };
 
   return (

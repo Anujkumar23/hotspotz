@@ -5,6 +5,8 @@ import { CrousalType } from "../app/(pages)/page";
 
 import { CROUSAL_CDN_URL } from "../constants";
 import Image from "next/image";
+import LoadingSpinner from "./LoadingSpinner";
+import CrousalShimmer from "./CrousalShimmer";
 type PropsType = {
   data: CrousalType[];
 };
@@ -49,16 +51,20 @@ const CrousalComponent: React.FC<PropsType> = ({ data }) => {
           className="flex  w-full  absolute [&::-webkit-scrollbar]:hidden  justify-center  gap-4  py-2  overflow-x-auto scroll-smooth "
           id="box"
         >
-          {data.map((card) => (
-            <Image
-              key={card.id}
-              alt={card.action.text}
-              src={CROUSAL_CDN_URL + card.imageId}
-              width={180}
-              height={180}
-              className="rounded-sm"
-            />
-          ))}
+          {data.length === 0 ? (
+            <CrousalShimmer />
+          ) : (
+            data.map((card) => (
+              <Image
+                key={card.id}
+                alt={card.action.text}
+                src={CROUSAL_CDN_URL + card.imageId}
+                width={180}
+                height={180}
+                className="rounded-sm"
+              />
+            ))
+          )}
         </section>
       </div>
 
