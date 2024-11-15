@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useCallback } from "react";
 import { ITEM_IMG_CDN_URL } from "@/constants";
 import Image from "next/image";
 import UseFetch from "@/Hooks/UseRestaurant";
@@ -43,13 +43,16 @@ const Page = ({ params }: Props) => {
 
   const { data, loading, error } = UseFetch(resId);
 
-  const handleAddToCart = (item: CardType) => {
-    if (!user?.email) {
-      push("/login");
-    } else {
-      dispatch(addToCart({ item, quantity: 1 }));
-    }
-  };
+  const handleAddToCart = useCallback(
+    (item: CardType) => {
+      if (!user?.email) {
+        push("/login");
+      } else {
+        dispatch(addToCart({ item, quantity: 1 }));
+      }
+    },
+    [dispatch, push, user?.email]
+  );
 
   return (
     <>
